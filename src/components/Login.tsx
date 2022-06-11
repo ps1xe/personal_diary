@@ -40,7 +40,7 @@ const Login = () => {
     const Auth = () => {
         if (!!localStorage.getItem('token')) {
             setHiddenBlock(false);
-            return window.open("http://localhost:3001/home")
+            return window.open("https://personal-diary-chi.vercel.app/home")
         }
         else {
             setHiddenBlock(true);
