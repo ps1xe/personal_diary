@@ -1,8 +1,9 @@
 import { HeaderDefault } from "./Header/HeaderDefault";
-import { login } from "../redux/actions/auth"
+import { isCome, login } from "../redux/actions/auth"
 import { User } from "../types/auth/authTypes";
 import { useDispatch } from "react-redux";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { isAuth } from "../redux/saga/auth/authSagas";
 
 
 
@@ -37,14 +38,12 @@ const Login = () => {
 
 
 
-    const Auth = () => {
-        if (!!localStorage.getItem('token')) {
-            setHiddenBlock(false);
-            return window.open("https://personal-diary-chi.vercel.app/home")
+    const come = () => {
+        dispatch(isCome());
+        if (isAuth) {
+
         }
-        else {
-            setHiddenBlock(true);
-        }
+        else { setHiddenBlock(true) }
     }
 
     return (
@@ -58,7 +57,7 @@ const Login = () => {
                     <label style={{ "marginTop": "15px", "marginBottom": "5px" }} className="form-label">Password:</label>
                     <input className="form-control" style={{ "marginLeft": "5%", "marginRight": "5%", "width": "80%" }} onChange={handleChangeInputPassword} type="password" placeholder="Password" />
 
-                    <button style={{ "marginTop": "35px", "width": "80%", "marginBottom": "25px" }} className="btn btn-primary" onClick={Auth}>Login</button>
+                    <button style={{ "marginTop": "35px", "width": "80%", "marginBottom": "25px" }} className="btn btn-primary" onClick={come}>Login</button>
                 </form>
                 {hiddenBlock ? <div id="alertAuth" style={{ "marginLeft": "35%", "marginRight": "35%" }} className="alert alert-danger"> An error has occurred :( </div> : <div></div>}
             </div>

@@ -1,8 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { HeaderDefault } from "./Header/HeaderDefault";
-import { registration } from "../redux/actions/auth"
+import { isCome, registration } from "../redux/actions/auth"
 import { User } from "../types/auth/authTypes";
+import { isAuth } from "../redux/saga/auth/authSagas";
 
 
 const Registration = () => {
@@ -42,6 +43,12 @@ const Registration = () => {
     }
 
 
+    const come = () => {
+        dispatch(isCome());
+        if (isAuth) {
+
+        }
+    }
 
     return (
         <div style={{ "height": "100vh" }} className="bg-info bg-opacity-25">
@@ -57,7 +64,7 @@ const Registration = () => {
                 <input style={{ "marginLeft": "5%", "marginRight": "5%", "width": "80%" }} className="form-control" onChange={handleChangeInputRepeatPassword} type="password" placeholder="Repeat password" />
 
 
-                <button style={{ "marginTop": "25px", "width": "80%", "marginBottom": "25px" }} className="btn btn-danger">Registration</button>
+                <button style={{ "marginTop": "25px", "width": "80%", "marginBottom": "25px" }} className="btn btn-danger" onClick={come}>Registration</button>
 
             </form>
             {password !== repeatPassword ? <div style={{ "marginLeft": "35%", "marginRight": "35%", "marginBottom": "10%" }} className="alert alert-danger"> Passwords do not match!!!</div> : <div></div>}

@@ -2,6 +2,7 @@ import { call, Effect, put, takeEvery } from "redux-saga/effects";
 import { AuthService } from "../../../api/auth/AuthService";
 import { Auth, AuthPageActionTypes, CreateUser, LoginUser, User, UserRequest } from "../../../types/auth/authTypes";
 
+export let isAuth = false;
 
 function* sagaRegistration(action: CreateUser): Generator<Effect, void, Auth> {
     try {
@@ -10,6 +11,9 @@ function* sagaRegistration(action: CreateUser): Generator<Effect, void, Auth> {
             password: action.user.password
         }
         const user = yield call(AuthService.registration, userObject);
+
+        isAuth = true;
+        yield put({ type: AuthPageActionTypes.ISAUTH });
 
         localStorage.setItem('token', user.jwtToken);
         localStorage.setItem('user', JSON.stringify(user.user));
@@ -28,6 +32,9 @@ function* sagaLogin(action: LoginUser): Generator<Effect, void, Auth> {
             password: action.user.password
         }
         const user = yield call(AuthService.login, userObject);
+
+        isAuth = true;
+        yield put({ type: AuthPageActionTypes.ISAUTH });
 
         localStorage.setItem('token', user.jwtToken);
         localStorage.setItem('user', JSON.stringify(user.user));

@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const BASE_URL = "https://personal--diary.herokuapp.com/api";
+// https://personal--diary.herokuapp.com/api
 
 const $api = axios.create({
-    withCredentials: true,
     baseURL: BASE_URL
 })
 

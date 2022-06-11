@@ -21,3 +21,11 @@ export const logout = () => {
         type: AuthPageActionTypes.LOGOUT,
     }
 }
+
+
+
+export const isCome = () => {
+    return {
+        type: AuthPageActionTypes.ISAUTH,
+    }
+}
