@@ -22,6 +22,5 @@
 </p>
 
 ## About
-
 - Author - [Evgeny Gerasimov](https://github.com/ps1xe)
 - Website - [personal--diary | Heroku](https://personal--diary.herokuapp.com/api)
