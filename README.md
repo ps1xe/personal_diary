@@ -21,5 +21,7 @@
   <a href="https://www.postgresql.org/" target="blank"><img src="https://postgrespro.ru/media/2016/04/04/postgresql-logo11.png" width="600" alt="Swagger Logo" /></a>
 </p>
 
+## About
+
 - Author - [Evgeny Gerasimov](https://github.com/ps1xe)
 - Website - [personal--diary | Heroku](https://personal--diary.herokuapp.com/api)
