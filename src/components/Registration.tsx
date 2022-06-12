@@ -65,7 +65,7 @@ const Registration = () => {
 
             </form>
             {password !== repeatPassword ? <div style={{ "marginLeft": "35%", "marginRight": "35%", "marginBottom": "10%" }} className="alert alert-danger"> Passwords do not match!!!</div> : <div></div>}
-            {state.isAuth ? <meta http-equiv="refresh" content="0;URL=https://personal-diary-chi.vercel.app/home" /> :<div></div>}
+            {state.isAuth ? <meta http-equiv="refresh" content="0;URL=https://personaldiary.vercel.app/home" /> :<div></div>}
            
             </div>
             

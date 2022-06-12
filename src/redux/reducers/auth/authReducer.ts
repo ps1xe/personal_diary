@@ -1,4 +1,4 @@
-import { AuthPageActionTypes, IsAuthAction, IsAuthenticationState } from "../../types/auth/authTypes";
+import { AuthPageActionTypes, IsAuthAction, IsAuthenticationState } from "../../../types/auth/authTypes";
 
 const initialState = {
     isAuth: false

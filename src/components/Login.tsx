@@ -2,8 +2,7 @@ import { HeaderDefault } from "./Header/HeaderDefault";
 import { login } from "../redux/actions/auth"
 import { AuthReducer, User } from "../types/auth/authTypes";
 import { useDispatch, useSelector } from "react-redux";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import Home from "./Home";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 
 const Login = () => {
@@ -13,7 +12,7 @@ const Login = () => {
     const [log, setLog] = useState('')
     const [password, setPassword] = useState('')
     const dispatch = useDispatch()
-    const [hiddenBlock, setHiddenBlock] = useState(false);
+    // const [hiddenBlock, setHiddenBlock] = useState(false);
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -25,7 +24,7 @@ const Login = () => {
         dispatch(login({ login: log, password: password } as User));
         setLog('');
         setPassword('')
-        setHiddenBlock(true);
+        // setHiddenBlock(true);
 
     }
 
@@ -54,7 +53,7 @@ const Login = () => {
 
                     <button style={{ "marginTop": "35px", "width": "80%", "marginBottom": "25px" }} className="btn btn-primary" >Login</button>
                 </form>
-                {!state.isAuth ? <div id="alertAuth" style={{ "marginLeft": "35%", "marginRight": "35%" }} className="alert alert-danger"> An error has occurred :(. Try again.</div> : <meta http-equiv="refresh" content="0;URL=https://personal-diary-chi.vercel.app/home" />}
+                {!state.isAuth ? <div id="alertAuth" style={{ "marginLeft": "35%", "marginRight": "35%" }} className="alert alert-danger"> An error has occurred :( Try again.</div> : <meta http-equiv="refresh" content="0;URL=https://personaldiary.vercel.app/home" />}
 
             </div>
         </div>

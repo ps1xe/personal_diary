@@ -16,5 +16,6 @@
   <a href="https://redux-saga.js.org/" target="blank"><img src="https://redux-saga.js.org/img/Redux-Saga-Logo-Landscape.png" width="680" alt="Saga Redux Logo Logo" /></a>
 </p>
 
+## About
 - Author - [Evgeny Gerasimov](https://github.com/ps1xe)
-- Website - [personal--diary | Vercel](https://personal-diary-chi.vercel.app/login)
+- Website - [personal--diary | Vercel](https://personaldiary.vercel.app/login)
