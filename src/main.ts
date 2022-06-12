@@ -11,16 +11,25 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   require('dotenv').config()
-  const cors = require("cors")
+
+
+  app.enableCors();
+  
+  // const whiteList = ['https://personal-diary-chi.vercel.app']
+
+
+  // app.enableCors({
+  //   origin: function (origin, callback) {
+
+  //     if (whiteList.indexOf(origin) !== -1) callback(null, true);
+  //     callback(new Error('Blocked by CORS'));
+  //   },
+  // });
+
 
   app.useGlobalPipes(new ValidationPipe)
-  app.use(cors({
-    origin: 'https://personal-diary-chi.vercel.app/',
-    credentials: true, 
-    optionSuccessStatus: 200
-  }));
 
-  
+
 
   app.use(cookieParser());
   app.setGlobalPrefix('api');
