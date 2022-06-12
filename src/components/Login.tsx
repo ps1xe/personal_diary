@@ -53,7 +53,7 @@ const Login = () => {
 
                     <button style={{ "marginTop": "35px", "width": "80%", "marginBottom": "25px" }} className="btn btn-primary" >Login</button>
                 </form>
-                {!state.isAuth ? <div id="alertAuth" style={{ "marginLeft": "35%", "marginRight": "35%" }} className="alert alert-danger"> An error has occurred :( Try again.</div> : <meta http-equiv="refresh" content="0;URL=https://personaldiary.vercel.app/home" />}
+                {!state.isAuth ? <div></div> : <meta http-equiv="refresh" content="0;URL=https://personaldiary.vercel.app/home" />}
 
             </div>
         </div>
