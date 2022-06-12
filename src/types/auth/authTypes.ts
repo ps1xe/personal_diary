@@ -5,7 +5,6 @@ export enum AuthPageActionTypes {
     REGISTRATION = "REGISTRATION",
     REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS",
     LOGOUT = "LOGOUT",
-    LOGOUT_SUCCESS = "LOGOUT_SUCCESS",
     ISAUTH = "ISAUTH"
 }
 
@@ -23,6 +22,18 @@ export interface UserRequest {
     password: string;
 }
 
+export interface IsAuthenticationState {
+    isAuth: boolean
+}
+
+export interface AuthReducer {
+    authReducer: IsAuthenticationState;
+}
+
+export interface IsAuthAction {
+    type: AuthPageActionTypes.ISAUTH;
+    isAuth: boolean;
+}
 
 export interface CreateUser {
     type: AuthPageActionTypes.REGISTRATION_SUCCESS | AuthPageActionTypes.REGISTRATION;

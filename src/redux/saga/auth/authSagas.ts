@@ -2,7 +2,6 @@ import { call, Effect, put, takeEvery } from "redux-saga/effects";
 import { AuthService } from "../../../api/auth/AuthService";
 import { Auth, AuthPageActionTypes, CreateUser, LoginUser, User, UserRequest } from "../../../types/auth/authTypes";
 
-export let isAuth = false;
 
 function* sagaRegistration(action: CreateUser): Generator<Effect, void, Auth> {
     try {
@@ -12,13 +11,13 @@ function* sagaRegistration(action: CreateUser): Generator<Effect, void, Auth> {
         }
         const user = yield call(AuthService.registration, userObject);
 
-        isAuth = true;
-        yield put({ type: AuthPageActionTypes.ISAUTH });
 
         localStorage.setItem('token', user.jwtToken);
         localStorage.setItem('user', JSON.stringify(user.user));
 
-        yield put({ type: AuthPageActionTypes.REGISTRATION_SUCCESS, payload: user })
+
+
+        yield put({ type: AuthPageActionTypes.ISAUTH, isAuth: true })
     } catch (error) {
         console.log('Error', error);
     }
@@ -33,13 +32,10 @@ function* sagaLogin(action: LoginUser): Generator<Effect, void, Auth> {
         }
         const user = yield call(AuthService.login, userObject);
 
-        isAuth = true;
-        yield put({ type: AuthPageActionTypes.ISAUTH });
-
         localStorage.setItem('token', user.jwtToken);
         localStorage.setItem('user', JSON.stringify(user.user));
 
-        yield put({ type: AuthPageActionTypes.LOGIN_SUCCESS, payload: user })
+        yield put({ type: AuthPageActionTypes.ISAUTH, isAuth: true })
     } catch (error) {
         console.log('Error', error);
     }
@@ -49,8 +45,6 @@ function* sagaLogout(): Generator<Effect, void> {
 
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-
-    yield put({ type: AuthPageActionTypes.LOGOUT_SUCCESS });
 
 }
 

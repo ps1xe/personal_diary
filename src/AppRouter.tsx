@@ -1,14 +1,19 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { isAuth } from "./redux/saga/auth/authSagas";
+import Home from "./components/Home";
 import { authRoutes, publicRoutes } from "./routes";
+import { AuthReducer } from "./types/auth/authTypes";
+
 const AppRouter = () => {
 
-    console.log();
+    const isAuth = !!localStorage.getItem('token')
     return (
+
         <Routes >
 
             {isAuth === true && authRoutes.map(({ path, Component }) =>
-                <Route index element={<Component />} />
+                <Route key={path} path={path} element={<Component />} />
             )}
 
             {publicRoutes.map(({ path, Component }) =>
@@ -16,7 +21,6 @@ const AppRouter = () => {
                 <Route key={path} path={path} element={<Component />} />
 
             )}
-
         </Routes>
 
     );
